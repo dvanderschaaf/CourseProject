@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="CSS/themes/ProjectTheme.css" />
+      <link rel="stylesheet" href="CSS/themes/jquery.mobile.icons.min.css" />
+      <link rel="stylesheet" type="text/css" href="CSS/normalize.css" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title> Favorite Books</title>
+
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+      <script type="text/javascript">
+        $(function() {
+          var Names = [];
+            function addPerson(){
+              Names.push($('#txt_firstname').val()+ " " +$('#txt_lastname').val()+ " " +$('#txt_phone').val());
+            }//addPerson
+            function updateNames(){
+              //need to clear unorder list before adding
+              $("#contact_list").html("");
+              for (var i=0; i < Names.length; i++){
+                $("#contact_list").append(
+                  "<li>" + Names[i] + "</li>"
+                );
+              }//end for
+              $("#contact_list").listview("refresh");
+            }//end updateNames
+            $("#btn_addnewperson").on("click", addPerson);
+            $("#landingpage").on("pagebeforeshow", updateNames);
+        });
+
+      </script>
+      <script type="text/javascript">
+        $(function() {
+          var Names = [];
+            function addFav(){
+              console.log("test");
+              Names.push($('#txt_BookName').val()+ " " +$('#txt_Author').val());
+              console.log($('#txt_BookName').val()+ " " +$('#txt_Author').val());
+            }//addFav
+            function updateNames(){
+              //need to clear unorder list before adding
+              $("#fav_list").html("");
+              for (var i=0; i < Names.length; i++){
+                $("#fav_list").append(
+                  "<li>" + Names[i] + "</li>"
+                );
+              }//end for
+              $("#fav_list").listview("refresh");
+            }//end updateNames
+            $("#btn_addfav").on("click", addFav);
+            $("#favListPage").on("pagebeforeshow", updateNames);
+        });
+
+      </script>
+      <script type="text/javascript">
+        $(function() {
+            function submit(){
+
+
+              $("#submission").append("<li>" + $('#fname').val() + " " + $('#lname').val() + "</li>" +
+              "<li>" + $('#state').val() + "</li>" +
+              "<li>" + $('#email1').val() + "</li>" +
+              "<li>" + document.getElementById("favgenere").options[document.getElementById("favgenere").selectedIndex].value + "</li>" +
+              "<li>" + document.querySelector('input[name="gender"]:checked').value + "</li>"
+            );
+            }//submit
+            $("#btn_submit").on("click", submit);
+        });
+
+      </script>
+
+    </head>
+
+    <body>
+      <div id="landingpage" data-role="page" data-theme="a" data-add-back-btn="true">
+      	<div class="headerA" data-role="header" data-theme="a">
+          <div class="headerB">
+            <img class="logo" src="images/logo.PNG" width="125" height="75" alt=""/>
+        </div>
+          <h1 class="headerC">Favorite Books</h1>
+        </div>
+
+        <div class="main1" data-role="main" class="ui-content">
+        <img src="images/books1.jpg" id="image" width="50%" height="50%"/>
+      <h2>Header</h2>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+           ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+            dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+             nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis
+             enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+      </p>
+
+      <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam
+         dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
+         Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean
+         leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam
+         lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+      </p>
+
+      <!--Creating an UL with Filter-->
+      <ul id="contact_list" data-role="listview" data-filter=true>
+        <li>Test</li>
+      </ul>
+
+
+    </div>
+    <div data-role="navbar">
+       <ul>
+         <li><a href="#kids">Kids Books</a></li>
+         <li><a href="#ficAdv">Fiction - Adventure</a></li>
+         <li><a href="#nonFic">Non-Fiction</a></li>
+         <li><a href="#favListPage">List Of Favorites</a></li>
+         <li><a href="#selfHelp">Self Help</a></li>
+         <li><a href="#contact">Add to Contact Us</a></li>
+         <li><a href="#aboutUs">About Us</a></li>
+         <li><a href="#favorites">Add Your Favorites</a></li>
+         <li><a href="#joincontact">Join Contact</a></li>
+
+       </ul>
+     </div>
+    <div data-role="footer" data-theme="a">
+      <h4>Dan Vander Schaaf &copy; 2017</h4>
+  </div>
+  </div>
+
+  <div id="kids" data-role="page" data-theme="a" data-add-back-btn="true">
+  	<div data-role="header" data-theme="a" data-add-back-btn="true">
+  	  <h1>Kids Books</h1>
+      <div class="logo"><img src="images/logo.PNG" width="125" height="75" alt=""/>
+    </div>
+  	</div>
+    <div data-role="Content">
+      <ul data-role="listview" "list-style-type:circle" data-theme="a">
+        <li>LLama LLama</li>
+        <li>Nelly Gnu</li>
+        <li>If You Give a Mouse a Cookie</li>
+      </ul>
+    </div>
+  	<div data-role="footer" data-theme="a">
+  	  <h4>Dan Vander Schaaf &copy; 2017</h4>
+  	</div>
+  </div>
+
+  <div id="ficAdv" data-role="page" data-theme="a" data-add-back-btn="true">
+  	<div data-role="header" data-theme="a" data-add-back-btn="true">
+  	  <h1>Non-Fiction</h1>
+      <div class="logo"><img src="images/logo.PNG" width="125" height="75" alt=""/>
+    </div>
+  	</div>
+    <div data-role="Content">
+      <ol data-role="listview" data-theme="a">
+        <li>Girl with the Dragon Tatoo</li>
+        <li>The Killing Floor</li>
+        <li>The Girl who Kicked the Hornet Nest</li>
+      </ol>
+    </div>
+  	<div data-role="footer" data-theme="a">
+  	  <h4>Dan Vander Schaaf &copy; 2017</h4>
+  	</div>
+  </div>
+
+  <div id="nonFic" data-role="page" data-theme="a" data-add-back-btn="true">
+  	<div data-role="header" data-theme="a" data-add-back-btn="true">
+  	  <h1>Self Help</h1>
+      <div class="logo"><img src="images/logo.PNG" width="125" height="75" alt=""/>
+    </div>
+  	</div>
+    <div data-role="Content">
+      <ul data-role="listview" data-theme="a">
+        <li>Test</li>
+        <li>Test</li>
+        <li>Test</li>
+      </ul>
+    </div>
+  </div>
+    <div id="favListPage" data-role="page" data-theme="a" data-add-back-btn="true">
+    	<div data-role="header" data-theme="a" data-add-back-btn="true">
+    	  <h1>List Of Favorites</h1>
+        <div class="logo"><img src="images/logo.PNG" width="125" height="75" alt=""/>
+      </div>
+    	</div>
+      <div data-role="Content">
+        <ul id="fav_list" data-role="listview" data-filter=true>
+          <li>Test</li>
+        </ul>
+      </div>
+    	<div data-role="footer" data-theme="a">
+    	  <h4>Dan Vander Schaaf &copy; 2017</h4>
+    	</div>
+    </div>
+
+    <div id="selfHelp" data-role="page" data-theme="a" data-add-back-btn="true">
+    	<div data-role="header" data-theme="a" data-add-back-btn="true">
+    	  <h1>Self Help</h1>
+        <div class="logo"><img src="images/logo.PNG" width="125" height="75" alt=""/>
+      </div>
+    	</div>
+      <div data-role="Content">
+        <div class="ui-grid-d">
+          <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">Personal Growth</div>
+          <ul data-role="listview" data-theme="a">
+            <li>The Alchemist</li>
+            <li>The Science of Likability</li>
+          </ul>
+        </div>
+          <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">Happieness</div>
+          <ul data-role="listview" data-theme="a">
+            <li>The Secret</li>
+            <li>The Untethered Soul</li>
+          </ul>
+        </div>
+          <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:60px">Self Esteem</div>
+          <ul data-role="listview" data-theme="a">
+            <li>Make Your Bed</li>
+            <li>Uninvited</li>
+          </ul>
+        </div>
+          <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:60px">Health and Fitness</div>
+          <ul data-role="listview" data-theme="a">
+            <li>Perennial Seller</li>
+            <li>Barking up the Wrong Tree</li>
+          </ul>
+        </div>
+          <div class="ui-block-e"><div class="ui-bar ui-bar-a" style="height:60px">Spiritual</div>
+          <ul data-role="listview" data-theme="a">
+            <li>The Four Agreements</li>
+            <li>Emotional Freedom</li>
+          </ul>
+        </div>
+          </div><!-- /grid-a -->
+      </div>
+    	<div data-role="footer" data-theme="a">
+    	  <h4>Dan Vander Schaaf &copy; 2017</h4>
+    	</div>
+    </div>
+
+    <div id="contact" data-role="page" data-theme="a" data-add-back-btn="true">
+    	<div data-role="header" data-theme="a" data-add-back-btn="true">
+        <div class="main" class="ui-content">
+          <p>
+            <label for="txt_firstname">First Name:</label>
+            <input type="text" id="txt_firstname">
+
+            <label for="txt_lastname">Last Name:</label>
+            <input type="text" id="txt_lastname">
+
+            <label for="txt_phone">Email Address:</label>
+            <input type="text" id="txt_phone">
+
+            <a href="#landingpage" id="btn_addnewperson" data-role"button">Add New</a>
+          </p>
+
+        </div>
+
+  	<div data-role="footer" data-theme="a">
+  	  <h4>Dan Vander Schaaf &copy; 2017</h4>
+  	</div>
+    </div>
+  </div>
+
+  <div id="favorites" data-role="page" data-theme="a" data-add-back-btn="true">
+    <div data-role="header" data-theme="a" data-add-back-btn="true">
+      <div class="main" class="ui-content">
+
+
+        <p>
+          <label for="txt_BookName">Book Name:</label>
+          <input type="text" id="txt_BookName">
+
+          <label for="txt_Author">Author:</label>
+          <input type="text" id="txt_Author">
+
+          <a href="#favListPage" id="btn_addfav" data-role"button">Add New Favorites</a>
+        </p>
+
+
+      </div>
+
+  <div data-role="footer" data-theme="a">
+    <h4>Dan Vander Schaaf &copy; 2017</h4>
+  </div>
+  </div>
+</div>
+
+<div id="joincontact" data-role="page" data-theme="a" data-add-back-btn="true">
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+    <div class="main" class="ui-content">
+      <p>
+        <form>
+            First name:
+            <input id="fname" type="text" name="firstname"><br>
+            Last name:<br>
+            <input id="lname" type="text" name="lastname"><br>
+            State:<br>
+            <input id="state" type="text" name="state"><br>
+            Email:<br>
+            <input id="email1" type="text" name="email"><br>
+</form>
+        <form>
+            <div id="gender">
+            Select Gender:<br>
+            <input type="radio" name="gender" value="male" checked> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br><br>
+          </div>
+</form>
+        <form>
+            Select Favorite Genere:<br>
+            <select id="favgenere" name="favoritegenre">
+             <option value="Fiction">Fiction</option>
+             <option value="Non-Fiction">Non-Fiction</option>
+            </select>
+
+        </form>
+
+        <a href="#joincontact" id="btn_submit" data-role"button">Submit</a>
+
+      </p>
+      <ul id="submission" data-role="listview" data-filter=false>
+
+      </ul>
+    </div>
+
+  <div class="foot" data-role="footer" data-theme="a">
+    <h4>Dan Vander Schaaf &copy; 2017</h4>
+  </div>
+  </div>
+</div>
+
+<div id="aboutUs" data-role="page" data-theme="a" data-add-back-btn="true">
+  <a href="#landingpage" class="ui-btn ui-icon-home ui-btn-inline">Home Button</a>
+  <a href="#panelProj" class="ui-btn ui-btn-inline" data-display="push">Open Panel</a>
+
+  <div data-role="panel" id="panelProj">
+  <h2>Contact Us</h2>
+  <ul data-role="listview" data-theme="a">
+  <li class="menu"><a href="mailto:fakeemail@gmail.com">fakeemail@gmail.com</a></li>
+  <li class="menu"><a href="mailto:newsLetter@gmail.com">newsLetter@gmail.com</a></li>
+  <li class="menu"><a href="#joincontact">Join Contact List</a></li>
+  </ul>
+  <br>
+  <a href="#aboutUs" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
+  </div>
+        Feel free to email us with any suggestions
+  </div>
+
+  <div data-role="header" data-theme="a" data-add-back-btn="true">
+
+
+
+<div data-role="footer" data-theme="a">
+  <h4>Dan Vander Schaaf &copy; 2017</h4>
+</div>
+</div>
+</div>
+
+    </body>
+</html>

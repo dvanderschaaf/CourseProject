@@ -1,0 +1,68 @@
+@font-face { font-family: Tahoma; src: url('Tahoma.TTF'); }
+
+p{
+    font-family: Tahoma;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+h2{
+  font-family: Tahoma;
+  color:rgb(36, 36, 40);
+  padding-left: 40px;
+}
+
+.logo{
+  opacity: 0.6;
+}
+
+.foot{
+  display: block;
+}
+
+h1{
+  text-align: center;
+
+}
+
+ul li{
+  display: inline;
+}
+
+li{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px
+
+}
+
+.main1{
+  display: inline;
+  padding-top: 10px;
+  clear:left;
+  background-color: white;
+}
+
+.main{
+  padding-bottom: 20px
+  padding-top:30px;
+}
+
+.headerA{
+  text-align: center;
+  position: relative;
+}
+.headerB{
+  position: absolute;
+}
+.headerC{
+  display: inline-block;
+}
+
+#image{
+  display: block;
+  margin: 0 auto;
+  .background-color: black;
+}
+/
